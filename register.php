@@ -8,6 +8,11 @@
 
 $page_title = "Register";
 require_once 'config/core.php';
+$country_array = $city_array = array();
+$country_sql = $db->query("SELECT * FROM ".DB_PREFIX."countries ORDER BY name");
+while ($rs = $country_sql->fetch(PDO::FETCH_ASSOC)){
+    $country_array[] = $rs;
+}
 require_once 'libs/head.php';
 ?>
 
@@ -29,20 +34,67 @@ require_once 'libs/head.php';
         <div class="form-holder">
             <div class="form-content">
                 <div class="form-items">
-                    <h3>Get more things done with Loggin platform.</h3>
-                    <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                    <h3>Get more things done with <?= WEB_TITLE?> platform.</h3>
+                    <p>All field(s) are required.</p>
                     <div class="page-links">
-                        <a href="<?= base_url(); ?>" class="active">Login</a><a href="<?= base_url("register"); ?>">Register</a>
+                        <a href="#" class="active"><?= $page_title ?></a>
                     </div>
-                    <form>
-                        <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
-                        <input class="form-control" type="password" name="password" placeholder="Password" required>
-                        <div class="form-button">
-                            <button id="submit" type="submit" class="ibtn">Login</button> <a href="forget4.html">Forget password?</a>
+                    <div class="alert alert-warning alert-dismissible fade show with-icon" role="alert">
+                        Please fill the following form with your information
+
+                    </div>
+                    <form method="post">
+                        <div class="row">
+                           <div class="col-sm-6">
+                               <div class="form-group">
+                                   <label for="">First Name</label>
+                                   <input type="text" name="fname" class="form-control" required placeholder="First Name" id="">
+                               </div>
+                           </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">Last Name</label>
+                                    <input type="text" name="lname" class="form-control" required placeholder="Last Name" id="">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="">Email Address</label>
+                                    <input type="email" name="email" class="form-control" required placeholder="Email Address" id="">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">Country</label>
+                                    <select name="country" class="form-control" required id="country">
+                                        <option value="" disabled selected>Select</option>
+                                        <?php if (is_array($country_array)): ?>
+                                            <?php foreach ($country_array as $value): ?>
+                                                <option value="<?= $value['id'] ?>"><?= ucwords($value['name']); ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="">City</label>
+                                    <select name="city" class="form-control" readonly="" required id="city">
+                                        <option value="" disabled selected>Select</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="form-button">
+                            <button id="submit" type="submit" name="add" class="ibtn">Register</button>                         </div>
                     </form>
                     <div class="other-links">
-                        <span>Or login with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                        <span>Already have an account? </span><a href="<?= base_url() ?>">Login to continue</a>
                     </div>
                 </div>
             </div>

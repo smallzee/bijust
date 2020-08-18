@@ -23,8 +23,9 @@
     // website configs
     define('WEB_EMAIL',"support@bitjust.net");
     define("WEB_TITLE", "BiJust");
-    define("USER_SESSION_HOLDER", "sub_user");
-    define("ADMIN_SESSION_HOLDER", "sub_admin");
+    define("USER_SESSION_HOLDER", "bj_user");
+    define("ADMIN_SESSION_HOLDER", "bj_admin");
+    define("DB_PREFIX", "bj_");
     define("HOME_DIR", "http://freelance.rr/web/bijust/");
 
     // template config
@@ -37,9 +38,9 @@
         define('SERVICE', HOME_DIR.'service/');
 
 		define('DB_HOST', 'localhost');
-	    define('DB_TABLE', 'datawcxv_subedata');
-	    define('DB_USER', 'datawcxv_subdata');
-	    define('DB_PASSWORD', 'x-&EgOX3Z,G#');
+	    define('DB_TABLE', 'bijustne_main');
+	    define('DB_USER', 'bijustne_main');
+	    define('DB_PASSWORD', '&vX_2E8]=[AG');
 
 
 	}else{
