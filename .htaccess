@@ -11,6 +11,7 @@ RewriteRule ^login?$ login.php
 RewriteRule ^logout?$ logout.php
 RewriteRule ^register?$ register.php
 RewriteRule ^forget?$ forget.php
+RewriteRule ^reset/(.*)/?$ reset.php?r=$1 [NC,L]
 
 ErrorDocument 404 /404.php
 </IfModule>

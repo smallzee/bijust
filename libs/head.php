@@ -8,5 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<?= CSS_FOLDER_TEMPLATE ?>fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="<?= CSS_FOLDER_TEMPLATE ?>iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="<?= CSS_FOLDER_TEMPLATE ?>iofrm-theme4.css">
+    <link rel="shortcut icon" href="<?= image_url('logo.png') ?>">
 </head>
 <body>

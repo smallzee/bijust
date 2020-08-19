@@ -8,6 +8,10 @@
 
 $page_title = "Login";
 require_once 'config/core.php';
+if (is_user_login() or user_details('status') == 1){
+    redirect(MAIN_URL);
+    exit();
+}
 if (isset($_POST['login'])){
     $email = strtolower($_POST['email']);
     $password = hash_password($_POST['password']);
@@ -20,9 +24,14 @@ if (isset($_POST['login'])){
     ));
 
     $num_row = $sql->rowCount();
+    $rs = $sql->fetch(PDO::FETCH_ASSOC);
 
     if ($num_row == 0){
         set_flash("Invalid login details","warning");
+    }else{
+        $_SESSION['logged'] = true;
+        $_SESSION[USER_SESSION_HOLDER] = $rs;
+        redirect(MAIN_URL);
     }
 }
 require_once 'libs/head.php';

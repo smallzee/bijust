@@ -34,6 +34,8 @@
     define("JS_FOLDER_TEMPLATE",TEMPLATE."js/");
     // end template config
 
+    define("MAIN_URL","https://bijust.com/");
+
 	if (Env == "online") {
         define('SERVICE', HOME_DIR.'service/');
 

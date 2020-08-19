@@ -48,6 +48,32 @@
         exit();
     }
 
+    function user_details($value){
+        global $db;
+        @$email = $_SESSION[USER_SESSION_HOLDER]['email'];
+        $sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE email='$email'");
+        $rs = $sql->fetch(PDO::FETCH_ASSOC);
+        return $rs[$value];
+    }
+
+    function is_user_login(){
+        if (isset($_SESSION['loggedin'])) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function require_login(){
+        if (!is_user_login() or user_details('status') == 0){
+            unset($_SESSION['loggedin']);
+            unset($_SESSION[USER_SESSION_HOLDER]);
+            redirect(base_url('index'));
+            //exit();
+        }else{
+            redirect(MAIN_URL);
+        }
+    }
 
     function send_mail($msg_body,$subject,$email){
         $email_tmp =  file_get_contents(HOME_DIR.'email-template.html');
@@ -70,3 +96,17 @@
         return $mails;
     }
 
+
+    function get_country($id,$value){
+         global $db;
+         $sql = $db->query("SELECT * FROM ".DB_PREFIX."countries WHERE id='$id'");
+         $rs = $sql->fetch(PDO::FETCH_ASSOC);
+         return $rs[$value];
+    }
+
+    function get_city($id,$value){
+        global $db;
+        $sql = $db->query("SELECT * FROM ".DB_PREFIX."states WHERE id='$id'");
+        $rs = $sql->fetch(PDO::FETCH_ASSOC);
+        return $rs[$value];
+    }

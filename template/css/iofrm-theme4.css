@@ -52,7 +52,7 @@
 
 .img-holder {
     width: 550px;
-    background-color: #FAFAFA;
+    background-color: #fff;
 }
 
 .img-holder .info-holder h3 {
@@ -112,7 +112,7 @@
 }
 
 .form-content .form-items {
-    max-width: 340px;
+    max-width: 450px;
     text-align: left;
 }
 
@@ -148,8 +148,8 @@
 }
 
 .form-content input, .form-content .dropdown-toggle.btn-default {
-    border: 1px solid rgba(0, 149, 255, 0);
-    background-color: #F7F7F7;
+    border: 1px solid #c0c0c0;
+    background-color: #fff;
     color: #000;
 }
 
@@ -160,8 +160,8 @@
 }
 
 .form-content textarea {
-    border: 1px solid rgba(0, 149, 255, 0);
-    background-color: #F7F7F7;
+    border: 1px solid #c0c0c0;
+    background-color: #fff;
     color: #000;
 }
 
