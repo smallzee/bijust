@@ -8,10 +8,16 @@
 
 $page_title = "Register";
 require_once 'config/core.php';
-$country_array = $city_array = array();
+$country_array = $state_array = array();
+
 $country_sql = $db->query("SELECT * FROM ".DB_PREFIX."countries ORDER BY name");
 while ($rs = $country_sql->fetch(PDO::FETCH_ASSOC)){
     $country_array[] = $rs;
+}
+
+$state_sql = $db->query("SELECT * FROM ".DB_PREFIX."states ORDER BY name");
+while ($rs = $state_sql->fetch(PDO::FETCH_ASSOC)){
+    $state_array[] = $rs;
 }
 require_once 'libs/head.php';
 ?>
@@ -28,20 +34,18 @@ require_once 'libs/head.php';
         <div class="img-holder">
             <div class="bg"></div>
             <div class="info-holder">
-                <img src="<?= image_url("graphic1.svg") ?>" alt="">
+                <img src="<?= image_url("graphic1.svg") ?>"  alt="">
             </div>
         </div>
         <div class="form-holder">
             <div class="form-content">
                 <div class="form-items">
                     <h3>Get more things done with <?= WEB_TITLE?> platform.</h3>
-                    <p>All field(s) are required.</p>
                     <div class="page-links">
                         <a href="#" class="active"><?= $page_title ?></a>
                     </div>
                     <div class="alert alert-warning alert-dismissible fade show with-icon" role="alert">
                         Please fill the following form with your information
-
                     </div>
                     <form method="post">
                         <div class="row">
@@ -86,6 +90,13 @@ require_once 'libs/head.php';
                                     <select name="city" class="form-control" readonly="" required id="city">
                                         <option value="" disabled selected>Select</option>
                                     </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="">Address</label>
+                                    <textarea name="address" class="form-control" required style="resize: none; min-height: 10px;" placeholder="Address"></textarea>
                                 </div>
                             </div>
                         </div>

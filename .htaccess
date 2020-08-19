@@ -10,6 +10,7 @@ RewriteRule ^404?$ 404.php
 RewriteRule ^login?$ login.php
 RewriteRule ^logout?$ logout.php
 RewriteRule ^register?$ register.php
+RewriteRule ^forget?$ forget.php
 
 ErrorDocument 404 /404.php
 </IfModule>
