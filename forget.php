@@ -47,7 +47,7 @@ require_once 'libs/head.php';
     <div class="website-logo">
         <a href="<?= base_url(); ?>">
             <div class="logo">
-                <img class="logo-size" src="<?= image_url("graphic1.svg") ?>" alt="">
+                <img class="logo-size" src="<?= image_url("graphic5.svg") ?>" alt="">
             </div>
         </a>
     </div>
@@ -55,7 +55,7 @@ require_once 'libs/head.php';
         <div class="img-holder">
             <div class="bg"></div>
             <div class="info-holder">
-                <img src="<?= image_url("graphic1.svg") ?>" alt="">
+                <img src="<?= image_url("graphic5.svg") ?>" alt="">
             </div>
         </div>
         <div class="form-holder">

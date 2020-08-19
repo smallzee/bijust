@@ -31,7 +31,7 @@
 }
 
 .website-logo .logo {
-    background-image: url("../images/logo-light.svg");
+    background-image: url("../images/logo.png");
 }
 
 .website-logo .logo img {
@@ -473,10 +473,10 @@
     }
 
     .website-logo .logo {
-        background-image: url("../images/logo-dark.svg");
+        background-image: url("../images/logo.png");
     }
 
     .form-body.without-side .website-logo .logo {
-        background-image: url("../images/logo-light.svg");
+        background-image: url("../images/logo.png");
     }
 }

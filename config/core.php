@@ -21,7 +21,7 @@
     define( 'TIMEBEFORE_MONTHS',  '{num} months ago' );
 
     // website configs
-    define('WEB_EMAIL',"support@bitjust.net");
+    define('WEB_EMAIL',"support@bijust.net");
     define("WEB_TITLE", "BiJust");
     define("USER_SESSION_HOLDER", "bj_user");
     define("ADMIN_SESSION_HOLDER", "bj_admin");
@@ -33,6 +33,9 @@
     define("CSS_FOLDER_TEMPLATE",TEMPLATE."css/");
     define("JS_FOLDER_TEMPLATE",TEMPLATE."js/");
     // end template config
+
+    define("ADMIN_CSS_FOLDER_TEMPLATE", TEMPLATE."assets/");
+    define("ADMIN_JS_FOLDER_TEMPLATE",TEMPLATE."assets/");
 
     define("MAIN_URL","https://bijust.com/");
 

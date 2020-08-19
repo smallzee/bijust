@@ -10,8 +10,8 @@ $page_title = "Login";
 require_once 'config/core.php';
 if (is_user_login() or user_details('status') == 1){
     redirect(MAIN_URL);
-    exit();
 }
+
 if (isset($_POST['login'])){
     $email = strtolower($_POST['email']);
     $password = hash_password($_POST['password']);
@@ -28,6 +28,10 @@ if (isset($_POST['login'])){
 
     if ($num_row == 0){
         set_flash("Invalid login details","warning");
+    }elseif ($rs['role_id'] > 1){
+        set_flash("Access denied","warning");
+    }elseif ($rs['status'] == 0){
+        set_flash("Unable to logged in","warning");
     }else{
         $_SESSION['logged'] = true;
         $_SESSION[USER_SESSION_HOLDER] = $rs;

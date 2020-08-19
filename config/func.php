@@ -68,11 +68,32 @@
         if (!is_user_login() or user_details('status') == 0){
             unset($_SESSION['loggedin']);
             unset($_SESSION[USER_SESSION_HOLDER]);
-            redirect(base_url('index'));
-            //exit();
-        }else{
-            redirect(MAIN_URL);
+            redirect(base_url('login'));
         }
+    }
+
+    function is_admin_login(){
+         if (isset($_SESSION['admin-loggedin'])){
+             return true;
+         }else{
+             return false;
+         }
+    }
+
+    function admin_details($value){
+        global $db;
+        @$email = $_SESSION[ADMIN_SESSION_HOLDER]['email'];
+        $sql = $db->query("SELECT * FROM ".DB_PREFIX."users WHERE email='$email'");
+        $rs = $sql->fetch(PDO::FETCH_ASSOC);
+        return $rs[$value];
+    }
+
+    function admin_require_login(){
+         if (!is_admin_login() or admin_details('status') == 0){
+             unset($_SESSION['admin-loggedin']);
+             unset($_SESSION[ADMIN_SESSION_HOLDER]);
+             redirect(base_url('admin/login'));
+         }
     }
 
     function send_mail($msg_body,$subject,$email){
@@ -109,4 +130,19 @@
         $sql = $db->query("SELECT * FROM ".DB_PREFIX."states WHERE id='$id'");
         $rs = $sql->fetch(PDO::FETCH_ASSOC);
         return $rs[$value];
+    }
+
+    function role($id){
+        global $db;
+        $sql = $db->query("SELECT * FROM ".DB_PREFIX."role WHERE id='$id'");
+        $rs = $sql->fetch(PDO::FETCH_ASSOC);
+        return $rs['name'];
+    }
+
+    function status($status){
+         if ($status ==  1){
+             return "Active";
+         }else{
+             return "Inactive";
+         }
     }

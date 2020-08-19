@@ -5,7 +5,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^(.*)/?$ $1.php [NC,L]
 #RewriteCond %{HTTP_HOST} !^www\. [NC]
 #RewriteRule .*https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-RewriteRule ^index?$ index.php
+RewriteRule ^login?$ index.php
 RewriteRule ^404?$ 404.php
 RewriteRule ^login?$ login.php
 RewriteRule ^logout?$ logout.php

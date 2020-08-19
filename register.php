@@ -199,7 +199,7 @@ require_once 'libs/head.php';
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="">Address</label>
-                                    <textarea name="address" class="form-control" required style="resize: none; height: 70px;" placeholder="Address">value="<?= @$_POST['address']; ?>"</textarea>
+                                    <textarea name="address" class="form-control" required style="resize: none; height: 70px;" placeholder="Address"><?= @$_POST['address']; ?></textarea>
                                 </div>
                             </div>
 
